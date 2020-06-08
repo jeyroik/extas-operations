@@ -3,7 +3,8 @@
   "description": "Abstract operations package",
   "require": {
     "jeyroik/extas-foundation": "5.*",
-    "jeyroik/extas-base": "2.*"
+    "jeyroik/extas-base": "2.*",
+    "jeyroik/extas-samples": "3.*"
   },
   "require-dev": {
     "phpunit/phpunit": "^9",
