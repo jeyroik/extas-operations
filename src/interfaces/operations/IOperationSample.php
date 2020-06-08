@@ -13,5 +13,16 @@ use extas\interfaces\samples\ISample;
  */
 interface IOperationSample extends ISample, IHasClass, IHasTags
 {
+    public const FIELD__SPECS = 'specs';
 
+    /**
+     * @return array
+     */
+    public function getSpecs(): array;
+
+    /**
+     * @param array $specs
+     * @return $this
+     */
+    public function setSpecs(array $specs);
 }

@@ -32,5 +32,8 @@ class OperationTest extends TestCase
 
         $sample = new OperationSample([OperationSample::FIELD__NAME => 'test']);
         $this->assertEquals('test', $sample->getName());
+
+        $op->setSpecs(['spec']);
+        $this->assertEquals(['spec'], $op->getSpecs());
     }
 }
