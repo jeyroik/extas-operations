@@ -4,6 +4,7 @@ namespace tests;
 use extas\components\operations\Operation;
 
 use Dotenv\Dotenv;
+use extas\components\operations\OperationSample;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -28,5 +29,8 @@ class OperationTest extends TestCase
             Operation::FIELD__CLASS => OperationUselessDispatcher::class
         ]);
         $this->assertEquals(['test1', 'test2', 'is ok'], $op->run('test1', 'test2'));
+
+        $sample = new OperationSample([OperationSample::FIELD__NAME => 'test']);
+        $this->assertEquals('test', $sample->getName());
     }
 }
