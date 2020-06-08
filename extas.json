@@ -1,0 +1,35 @@
+{
+  "name": "extas/operations",
+  "installer_version": 3,
+  "package_classes": [
+    {
+      "interface": "operationRepository",
+      "class": "extas\\components\\operations\\OperationRepository"
+    },
+    {
+      "interface": "operationSampleRepository",
+      "class": "extas\\components\\operations\\OperationSampleRepository"
+    }
+  ],
+  "plugins": [
+    {
+      "class": "extas\\components\\plugins\\install\\InstallOperations",
+      "stage": "extas.install.section.operations"
+    },
+    {
+      "class": "extas\\components\\plugins\\uninstall\\UninstallOperations",
+      "stage": "extas.uninstall.section.operations"
+    }
+  ],
+  "extensions": [
+    {
+      "class": "extas\\components\\extensions\\ExtensionRepositoryGet",
+      "interface": "extas\\interfaces\\extensions\\IExtensionRepositoryGet",
+      "subject": "*",
+      "methods": [
+        "operationRepository",
+        "operationSampleRepository"
+      ]
+    }
+  ]
+}
