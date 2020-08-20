@@ -1,35 +1,32 @@
 {
   "name": "extas/operations",
   "installer_version": 3,
-  "package_classes": [
+  "repositories": [
     {
-      "interface": "operationRepository",
-      "class": "extas\\components\\operations\\OperationRepository"
+      "name": "operations",
+      "scope": "extas",
+      "pk": "name",
+      "class": "extas\\components\\operations\\Operation",
+      "aliases": ["operations"]
     },
     {
-      "interface": "operationSampleRepository",
-      "class": "extas\\components\\operations\\OperationSampleRepository"
+      "name": "operations_samples",
+      "scope": "extas",
+      "pk": "name",
+      "class": "extas\\components\\operations\\OperationSample",
+      "aliases": ["operationsSamples"]
     }
   ],
-  "plugins": [
+  "plugins_install": [
     {
-      "class": "extas\\components\\plugins\\install\\InstallOperations",
-      "stage": "extas.install.section.operations"
+      "repository": "operations",
+      "name": "operation",
+      "section": "operations"
     },
     {
-      "class": "extas\\components\\plugins\\uninstall\\UninstallOperations",
-      "stage": "extas.uninstall.section.operations"
-    }
-  ],
-  "extensions": [
-    {
-      "class": "extas\\components\\extensions\\ExtensionRepositoryGet",
-      "interface": "extas\\interfaces\\extensions\\IExtensionRepositoryGet",
-      "subject": "*",
-      "methods": [
-        "operationRepository",
-        "operationSampleRepository"
-      ]
+      "repository": "operationsSamples",
+      "name": "operation sample",
+      "section": "operations_samples"
     }
   ]
 }

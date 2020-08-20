@@ -5,6 +5,7 @@ use extas\components\operations\Operation;
 
 use Dotenv\Dotenv;
 use extas\components\operations\OperationSample;
+use extas\components\repositories\TSnuffRepositoryDynamic;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -15,11 +16,22 @@ use PHPUnit\Framework\TestCase;
  */
 class OperationTest extends TestCase
 {
+    use TSnuffRepositoryDynamic;
+
     protected function setUp(): void
     {
         parent::setUp();
         $env = Dotenv::create(getcwd() . '/tests/');
         $env->load();
+        $this->createSnuffDynamicRepositories([
+            ['operations', Operation::FIELD__NAME, Operation::class],
+            ['operationsSamples', OperationSample::FIELD__NAME, OperationSample::class],
+        ]);
+    }
+
+    protected function tearDown(): void
+    {
+        $this->deleteSnuffDynamicRepositories();
     }
 
     public function testBasicLogic()
