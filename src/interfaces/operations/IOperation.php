@@ -1,6 +1,7 @@
 <?php
 namespace extas\interfaces\operations;
 
+use extas\interfaces\IHasVersion;
 use extas\interfaces\samples\IHasSample;
 
 /**
@@ -9,7 +10,7 @@ use extas\interfaces\samples\IHasSample;
  * @package extas\interfaces\operations
  * @author jeyroik <jeyroik@gmail.com>
  */
-interface IOperation extends IOperationSample, IHasSample
+interface IOperation extends IOperationSample, IHasSample, IHasVersion
 {
     /**
      * @param mixed ...$args

@@ -47,5 +47,8 @@ class OperationTest extends TestCase
 
         $op->setSpecs(['spec']);
         $this->assertEquals(['spec'], $op->getSpecs());
+
+        $op->setVersion(1);
+        $this->assertEquals(1, $op->getVersion());
     }
 }
